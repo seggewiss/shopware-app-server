@@ -1,0 +1,37 @@
+parameters:
+    level: 9
+    reportUnmatchedIgnoredErrors: false
+    inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    symfony:
+        constant_hassers: false
+        container_xml_path: 'var/cache/dev/App_KernelDevDebugContainer.xml'
+
+    ignoreErrors:
+        -
+            message: '#Property App\\Test\\Helper\\JsonSerializableTest::\$testDateTime is never read, only written\.#'
+            path: 'tests/Helper/JsonSerializableTraitTest.php'
+            count: 1
+        -
+            message: '#Property App\\Service\\AmazonPayService::\$env is never read, only written\.#'
+            path: 'src/Service/AmazonPayService.php'
+            count: 1
+        -
+            message: '#Access to an undefined property Amazon\\Pay\\API\\Client::\$sandbox.#'
+            path: 'src/Service/AmazonPayService.php'
+            count: 1
+        -
+            message: '#Negated boolean expression is always false.#'
+            path: 'src/AmazonPay/CredentialsStore.php'
+            count: 2
+        -
+            message: '#Result of || is always false.#'
+            path: 'src/AmazonPay/CredentialsStore.php'
+            count: 2
+        -
+            message: '#Parameter \#2 \$string of function explode expects string, mixed given\.#'
+            count: 1
+            path: src/Api/Subscriber/ApiSignatureAuthenticationSubscriber.php
+    excludePaths:
+        - tests/Builder/*

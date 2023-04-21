@@ -1,0 +1,9 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    debug: true
+    globals:
+        appEnv: '%env(APP_ENV)%'
+
+when@test:
+    twig:
+        strict_variables: true

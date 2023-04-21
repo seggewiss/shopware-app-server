@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="3"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificImplementedReturnType>
+            <errorLevel type="info">
+                <directory name="src/Repository"/>
+            </errorLevel>
+        </LessSpecificImplementedReturnType>
+
+        <TooManyArguments>
+            <errorLevel type="info">
+                <referencedFunction name="Doctrine\ORM\Query\Expr::orx"/>
+            </errorLevel>
+        </TooManyArguments>
+
+        <InvalidReturnType>
+            <errorLevel type="info">
+                <file name="src/AmazonPay/Struct/AmazonPayConfigurationReturnStruct.php"/>
+            </errorLevel>
+        </InvalidReturnType>
+
+        <InvalidReturnStatement>
+            <errorLevel type="info">
+                <file name="src/AmazonPay/Struct/AmazonPayConfigurationReturnStruct.php"/>
+            </errorLevel>
+        </InvalidReturnStatement>
+    </issueHandlers>
+</psalm>
