@@ -1,19 +1,28 @@
 {
     "dependencies": {
-        "@shopware-ag/admin-extension-sdk": "^3.0.4"
+        "@shopware-ag/admin-extension-sdk": "^3.0.4",
+        "@shopware-ag/meteor-component-library": "^2.0.1",
+        "patch-package": "^6.5.1"
     },
     "devDependencies": {
         "@symfony/webpack-encore": "^1.7.0",
         "core-js": "^3.0.0",
         "file-loader": "^6.2.0",
+        "fork-ts-checker-webpack-plugin": "^6.5.3",
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.54.9",
         "sass-loader": "^12.6.0",
+        "ts-loader": "^9.4.2",
+        "typescript": "^5.0.4",
+        "vue": "^2.7.14",
+        "vue-loader": "^15.10.1",
+        "vue-template-compiler": "^2.7.14",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "postinstall": "patch-package",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",

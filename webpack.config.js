@@ -15,6 +15,13 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
+    .enableVueLoader()
+    .configureLoaderRule('typescript', (rule) => {
+        rule.exclude = /node_modules\/(?!@shopware-ag)/;
+    })
+    .enableTypeScriptLoader((options) => {
+        options.allowTsInNodeModules = true;
+    })
 
     .configureBabel((config) => {
         config.plugins.push('@babel/plugin-proposal-class-properties');
@@ -23,12 +30,6 @@ Encore
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
-    })
-
-    .copyFiles({
-        from: './assets/img',
-        to: 'img/[path][name].[ext]',
-        pattern: /\.(png|jpg|jpeg|svg)$/
     })
 ;
 

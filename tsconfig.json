@@ -1,0 +1,6 @@
+{
+  "include": [
+    "assets/**/*",
+    "node_modules/@shopware-ag/meteor-component-library/**/*",
+  ]
+}

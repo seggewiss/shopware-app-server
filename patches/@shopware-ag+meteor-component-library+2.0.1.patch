@@ -1,0 +1,34 @@
+diff --git a/node_modules/@shopware-ag/meteor-component-library/src/components/context-menu/sw-context-button/sw-context-button.vue b/node_modules/@shopware-ag/meteor-component-library/src/components/context-menu/sw-context-button/sw-context-button.vue
+index 73008ee..a163514 100644
+--- a/node_modules/@shopware-ag/meteor-component-library/src/components/context-menu/sw-context-button/sw-context-button.vue
++++ b/node_modules/@shopware-ag/meteor-component-library/src/components/context-menu/sw-context-button/sw-context-button.vue
+@@ -220,7 +220,6 @@ export default Vue.extend({
+       // check if the user clicked inside the context menu
+       const clickedInside = contextButton ? (contextButton as Element).contains((event.target as Element)) : false;
+       if (this.autoCloseOutsideClick && this.showMenu && !clickedInside) {
+-        // @ts-expect-error - swContextMenu exists
+         const contextMenu = this.$refs.swContextMenu.$el;
+         const clickedOutside = contextMenu?.contains(event.target) ?? false;
+ 
+diff --git a/node_modules/@shopware-ag/meteor-component-library/src/components/layout/sw-card/sw-card.vue b/node_modules/@shopware-ag/meteor-component-library/src/components/layout/sw-card/sw-card.vue
+index 79f84f7..9ff00a7 100644
+--- a/node_modules/@shopware-ag/meteor-component-library/src/components/layout/sw-card/sw-card.vue
++++ b/node_modules/@shopware-ag/meteor-component-library/src/components/layout/sw-card/sw-card.vue
+@@ -182,7 +182,6 @@ export default Vue.extend({
+                 return classes;
+             }
+ 
+-            // @ts-expect-error - $el exists
+             const staticClasses = (this.$refs.swIgnoreClass?.$el?._prevClass ?? '').split(' ');
+ 
+             // add attrs classes to main card
+@@ -192,9 +191,7 @@ export default Vue.extend({
+ 
+             // remove classes from ignore class
+             this.$nextTick(() => {
+-                // @ts-expect-error - $el exists on ref
+                 if (this.$refs.swIgnoreClass?.$el?.className) {
+-                    // @ts-expect-error - $el exists on ref
+                     this.$refs.swIgnoreClass.$el.className = '';
+                 }
+             });
