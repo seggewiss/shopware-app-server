@@ -12,30 +12,4 @@
             <directory name="vendor"/>
         </ignoreFiles>
     </projectFiles>
-
-    <issueHandlers>
-        <LessSpecificImplementedReturnType>
-            <errorLevel type="info">
-                <directory name="src/Repository"/>
-            </errorLevel>
-        </LessSpecificImplementedReturnType>
-
-        <TooManyArguments>
-            <errorLevel type="info">
-                <referencedFunction name="Doctrine\ORM\Query\Expr::orx"/>
-            </errorLevel>
-        </TooManyArguments>
-
-        <InvalidReturnType>
-            <errorLevel type="info">
-                <file name="src/AmazonPay/Struct/AmazonPayConfigurationReturnStruct.php"/>
-            </errorLevel>
-        </InvalidReturnType>
-
-        <InvalidReturnStatement>
-            <errorLevel type="info">
-                <file name="src/AmazonPay/Struct/AmazonPayConfigurationReturnStruct.php"/>
-            </errorLevel>
-        </InvalidReturnStatement>
-    </issueHandlers>
 </psalm>
