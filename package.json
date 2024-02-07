@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "@shopware-ag/admin-extension-sdk": "^3.0.4",
+        "@shopware-ag/meteor-admin-sdk": "^3.0.17",
         "@shopware-ag/meteor-component-library": "^2.0.1",
         "patch-package": "^6.5.1"
     },

@@ -1,4 +1,4 @@
-import * as sw from '@shopware-ag/admin-extension-sdk';
+import * as sw from '@shopware-ag/meteor-admin-sdk';
 
 if (sw.location.is(sw.location.MAIN_HIDDEN)) {
     import('./base/main-hidden');

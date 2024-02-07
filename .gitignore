@@ -38,3 +38,6 @@ yarn-error.log
 .devenv*
 devenv.local.nix
 
+# Yalc
+.yalc
+yalc.lock
