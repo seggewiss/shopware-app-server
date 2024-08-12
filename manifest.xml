@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Manifest/Schema/manifest-2.0.xsd">
+    <meta>
+        <name>TestApp</name>
+        <label>App</label>
+        <label lang="de-DE">App</label>
+        <description>An app</description>
+        <description lang="de-DE">Eine App</description>
+        <copyright>MIT</copyright>
+        <author>seggewiss</author>
+        <version>1.0.4</version>
+        <license>MIT</license>
+    </meta>
+
+    <setup>
+        <registrationUrl>http://localhost:8889/app/lifecycle/register</registrationUrl>
+        <secret>AppSystem4TheWin</secret>
+    </setup>
+
+    <admin>
+        <base-app-url>http://localhost:8889/admin-sdk</base-app-url>
+    </admin>
+
+    <permissions>
+        <read>order</read>
+        <read>sales_channel</read>
+    </permissions>
+</manifest>
