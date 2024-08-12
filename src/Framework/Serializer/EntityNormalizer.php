@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 #[AutoconfigureTag(name: 'serializer.normalizer')]
 class EntityNormalizer implements NormalizerInterface
 {
-    public const ORIGINAL_DATA = 'app_original_data';
+    public const ORIGINAL_DATA = 'swag_original_data';
 
     private const REGEX = '/.*(Segge.*)/';
 
