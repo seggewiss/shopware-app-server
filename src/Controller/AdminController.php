@@ -35,4 +35,25 @@ class AdminController extends AbstractController
 
         return $response;
     }
+
+    #[Route(
+        path: '/promotion-module',
+        name: 'segge.promotion-module',
+        methods: [Request::METHOD_GET]
+    )]
+    public function promotionModule(SessionInterface $session, ShopEntity $shop): Response
+    {
+        $session->set(ShopResolver::SHOP_ID, $shop->getShopId());
+
+        $cookie = Cookie::create(\session_name())
+            ->withValue(\session_id())
+            ->withSameSite(Cookie::SAMESITE_NONE)
+            ->withSecure()
+            ->withPartitioned();
+
+        $response = $this->render('promotion-module.html.twig');
+        $response->headers->setCookie($cookie);
+
+        return $response;
+    }
 }
