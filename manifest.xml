@@ -19,10 +19,16 @@
 
     <admin>
         <base-app-url>http://localhost:8889/admin-sdk</base-app-url>
+
+        <action-button action="createPromotion" entity="promotion" view="detail" url="http://localhost:8889/createPromotion">
+            <label>Create Promotion</label>
+            <label lang="de-DE">Promotion erstellen</label>
+        </action-button>
     </admin>
 
     <permissions>
         <read>order</read>
+        <read>promotion</read>
         <read>sales_channel</read>
     </permissions>
 </manifest>

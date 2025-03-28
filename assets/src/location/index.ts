@@ -8,5 +8,15 @@ export async function addLocations() {
             label: 'Segge Test App',
             locationId: 'test-module',
         });
+
+        sw.ui.actionButton.add({
+            name: 'test-action-button',
+            label: 'Foo',
+            entity: 'product',
+            view: 'list',
+            callback: (entity, idList) => {
+                console.log('SDK: product action button submitted', entity, idList);
+            },
+        });
     }
 }

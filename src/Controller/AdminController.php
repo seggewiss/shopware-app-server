@@ -2,6 +2,7 @@
 
 namespace Segge\AppServer\Controller;
 
+use Psr\Log\LoggerInterface;
 use Segge\AppServer\Entity\ShopEntity;
 use Segge\AppServer\Framework\Request\ShopResolver;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 #[AsController]
 class AdminController extends AbstractController
 {
+    public function __construct(
+        private readonly LoggerInterface $logger,
+    )
+    {   
+    }
+
     #[Route(
         path: '/admin-sdk',
         name: 'segge.admin-sdk',
@@ -52,6 +59,32 @@ class AdminController extends AbstractController
             ->withPartitioned();
 
         $response = $this->render('promotion-module.html.twig');
+        $response->headers->setCookie($cookie);
+
+        return $response;
+    }
+
+    #[Route(
+        path: '/createPromotion',
+        name: 'segge.create-promotion',
+        methods: [Request::METHOD_POST]
+    )]
+    public function createPromotion(SessionInterface $session, ShopEntity $shop, Request $request): Response
+    {
+        $session->set(ShopResolver::SHOP_ID, $shop->getShopId());
+
+        $cookie = Cookie::create(\session_name())
+            ->withValue(\session_id())
+            ->withSameSite(Cookie::SAMESITE_NONE)
+            ->withSecure()
+            ->withPartitioned();
+
+        $this->logger->debug('Create promotion', [
+            'shopId' => $shop->getShopId(),
+            'promotion' => $request->request->all(),
+        ]);
+
+        $response = new Response();
         $response->headers->setCookie($cookie);
 
         return $response;
