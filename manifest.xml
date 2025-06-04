@@ -8,7 +8,7 @@
         <description lang="de-DE">Eine App</description>
         <copyright>MIT</copyright>
         <author>seggewiss</author>
-        <version>1.0.4</version>
+        <version>1.1.0</version>
         <license>MIT</license>
     </meta>
 
@@ -20,15 +20,38 @@
     <admin>
         <base-app-url>http://localhost:8889/admin-sdk</base-app-url>
 
-        <action-button action="createPromotion" entity="promotion" view="detail" url="http://localhost:8889/createPromotion">
-            <label>Create Promotion</label>
-            <label lang="de-DE">Promotion erstellen</label>
+        <action-button action="createProduct" entity="product" view="detail" url="http://localhost:8889/action-button/detail/product">
+            <label>Manifest Product Detail</label>
+        </action-button>
+
+        <action-button action="createOrder" entity="order" view="detail" url="http://localhost:8889/action-button/detail/order">
+            <label>Manifest Order Detail</label>
+        </action-button>
+
+        <action-button action="createCategory" entity="category" view="detail" url="http://localhost:8889/action-button/detail/category">
+            <label>Manifest Category Detail</label>
+        </action-button>
+
+        <action-button action="createPromotion" entity="promotion" view="detail" url="http://localhost:8889/action-button/detail/promotion">
+            <label>Manifest Promotion Detail</label>
+        </action-button>
+
+        <action-button action="createCustomer" entity="customer" view="detail" url="http://localhost:8889/action-button/detail/customer">
+            <label>Manifest Customer Detail</label>
+        </action-button>
+
+        <action-button action="createCmsPage" entity="cms_page" view="detail" url="http://localhost:8889/action-button/detail/cms_page">
+            <label>Manifest CmsPage Detail</label>
         </action-button>
     </admin>
 
     <permissions>
+        <read>product</read>
         <read>order</read>
+        <read>category</read>
         <read>promotion</read>
+        <read>customer</read>
+        <read>cms_page</read>
         <read>sales_channel</read>
     </permissions>
 </manifest>

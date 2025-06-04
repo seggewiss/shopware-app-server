@@ -79,9 +79,15 @@ class AdminController extends AbstractController
             ->withSecure()
             ->withPartitioned();
 
+        // Get the JSON content from the request
+        $content = $request->getContent();
+
+        // Decode the JSON data
+        $data = json_decode($content, true);
+
         $this->logger->debug('Create promotion', [
             'shopId' => $shop->getShopId(),
-            'promotion' => $request->request->all(),
+            'promotion' => $data['data'],
         ]);
 
         $response = new Response();
